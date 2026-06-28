@@ -1,5 +1,13 @@
+// Marca que el JS de animaciones arrancó (desactiva el failsafe del <head>).
+window.__revealReady = true;
+
 // Año dinámico
 document.getElementById("year").textContent = new Date().getFullYear();
+
+// Si el navegador no soporta IntersectionObserver, mostrar todo sin animar.
+if (!("IntersectionObserver" in window)) {
+  document.querySelectorAll(".reveal").forEach((el) => el.classList.add("in"));
+}
 
 // Nav: fondo al hacer scroll
 const nav = document.getElementById("nav");
